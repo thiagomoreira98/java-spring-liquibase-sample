@@ -21,7 +21,7 @@ public class Product {
     private Long id;
 
     @NotEmpty
-    @Size(max = 100, message = "the property 'name' must be a maximum of 100 characters.")
+    @Size(min = 1, max = 100, message = "the property 'name' must be a maximum of 100 characters.")
     @ApiModelProperty(name = "name", value = "product name")
     private String name;
 

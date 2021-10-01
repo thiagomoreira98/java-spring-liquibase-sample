@@ -12,14 +12,14 @@ import java.util.List;
 @Api(tags = "Product")
 public interface ProductControllerOpenApi {
 
-    @ApiOperation(value = "Listar os produtos")
+    @ApiOperation(value = "List products")
     @ApiResponses({
         @ApiResponse(code = 200, message ="Ok"),
         @ApiResponse(code = 500, message ="Internal server error")
     })
     List<Product> list();
 
-    @ApiOperation(value = "Buscar um produto pelo ID")
+    @ApiOperation(value = "Find one product by ID")
     @ApiResponses({
         @ApiResponse(code = 200, message ="Ok"),
         @ApiResponse(code = 404, message ="Not found"),
@@ -27,14 +27,14 @@ public interface ProductControllerOpenApi {
     })
     ResponseEntity<Product> findById(Long id);
 
-    @ApiOperation(value = "Cadastrar ou atualizar um produto")
+    @ApiOperation(value = "Insert or update one product")
     @ApiResponses({
         @ApiResponse(code = 200, message ="Ok"),
         @ApiResponse(code = 500, message ="Internal server error")
     })
     ResponseEntity<Object> insertOrUpdate(Product product);
 
-    @ApiOperation(value = "Deletar um produto pelo ID")
+    @ApiOperation(value = "Delete one product by ID")
     @ApiResponses({
         @ApiResponse(code = 200, message ="Ok"),
         @ApiResponse(code = 500, message ="Internal server error")
