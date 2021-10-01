@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  profiles:
+    active: ${ENVIRONMENT}
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: ${LOGGING_SQL}
+    properties:
+      hibernate:
+        format_sql: ${LOGGING_SQL}
+  liquibase:
+    change-log: classpath*:db/changelog/db.changelog-master-${ENVIRONMENT}.yaml

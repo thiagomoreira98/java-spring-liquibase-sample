@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product
+      author: thiago.moreira
+      preConditions:
+        not:
+          tableExists:
+            tableName: product
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: product_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: description
+                  type: VARCHAR(300)
+              - column:
+                  name: price
+                  type: NUMERIC(10, 2)
